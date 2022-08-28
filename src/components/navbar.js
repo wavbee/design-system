@@ -4,51 +4,72 @@ import { Popover, Transition } from '@headlessui/react';
 import {
   BookmarkAltIcon,
   CalendarIcon,
-  ChartBarIcon,
-  CursorClickIcon,
+  PlusIcon,
+  PencilAltIcon,
   MenuIcon,
   PhoneIcon,
-  PlayIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
+  UserGroupIcon,
   SupportIcon,
   ViewGridIcon,
+  TableIcon,
   XIcon,
+  ChartBarIcon,
+  NewspaperIcon,
+  CashIcon,
 } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 
-const solutions = [
+const distribution = [
   {
-    name: 'Analytics',
-    description: 'Get a better understanding of where your traffic is coming from.',
+    name: 'Create Release',
+    description: 'Upload and send your music to the top stores worldwide.',
     href: '#',
-    icon: ChartBarIcon,
+    icon: PlusIcon,
   },
   {
-    name: 'Engagement',
-    description: 'Speak directly to your customers in a more meaningful way.',
+    name: 'Pending Releases',
+    description: 'Checkout all the releases that are not live yet and might need your action.',
     href: '#',
-    icon: CursorClickIcon,
+    icon: PencilAltIcon,
   },
   {
-    name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon,
-  },
-  {
-    name: 'Integrations',
-    description: "Connect with third-party tools that you're already using.",
+    name: 'Discography',
+    description: 'See the complete catalog of your music and manage your changes.',
     href: '#',
     icon: ViewGridIcon,
   },
   {
-    name: 'Automations',
-    description: 'Build strategic funnels that will drive your customers to convert',
+    name: 'Your Artists',
+    description: 'See all your artists, update and manage their profiles.',
     href: '#',
-    icon: RefreshIcon,
+    icon: UserGroupIcon,
   },
 ];
+
+const saleReports = [
+  {
+    name: 'Music Stats',
+    description: 'Keep track of how well your music is doing and check how much you are earning.',
+    href: '#',
+    icon: ChartBarIcon,
+  },
+  {
+    name: 'Reports',
+    description: 'Get detailed report of all your streams and revenue.',
+    href: '#',
+    icon: NewspaperIcon,
+  },
+  {
+    name: 'Earnings',
+    description: "Where's my money? See past earnings and when more are coming.",
+    href: '#',
+    icon: CashIcon,
+  },
+];
+
 const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  { name: 'Release Guidelines', href: '#', icon: BookmarkAltIcon },
+  { name: 'Contact Support', href: '#', icon: PhoneIcon },
 ];
 const resources = [
   {
@@ -58,19 +79,16 @@ const resources = [
     icon: SupportIcon,
   },
   {
-    name: 'Guides',
+    name: 'Knowledge Base',
     description: 'Learn how to maximize our platform to get the most out of it.',
     href: '#',
     icon: BookmarkAltIcon,
   },
   {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
+    name: 'Release Guidelines',
+    description: 'All you need to know before you release your music.',
     href: '#',
     icon: CalendarIcon,
-  },
-  {
-    name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon,
   },
 ];
 const recentPosts = [
@@ -105,6 +123,9 @@ export default function Navbar() {
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
+            <a href="#" className="text-base font-medium text-wgray hover:text-charcoal">
+              Overview
+            </a>
             <Popover className="relative">
               {({ open }) => (
                 <>
@@ -114,7 +135,7 @@ export default function Navbar() {
                       'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-charcoal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-worange',
                     )}
                   >
-                    <span>Solutions</span>
+                    <span>Distribution</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? 'text-gray-600' : 'text-wgray',
@@ -136,7 +157,7 @@ export default function Navbar() {
                     <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                       <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                          {solutions.map((item) => (
+                          {distribution.map((item) => (
                             <a
                               key={item.name}
                               href={item.href}
@@ -169,13 +190,61 @@ export default function Navbar() {
                 </>
               )}
             </Popover>
+            <Popover className="relative">
+              {({ open }) => (
+                <>
+                  <Popover.Button
+                    className={classNames(
+                      open ? 'text-charcoal' : 'text-wgray',
+                      'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-charcoal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-worange',
+                    )}
+                  >
+                    <span>Sales & Reports</span>
+                    <ChevronDownIcon
+                      className={classNames(
+                        open ? 'text-gray-600' : 'text-wgray',
+                        'ml-2 h-5 w-5 group-hover:text-gray-500',
+                      )}
+                      aria-hidden="true"
+                    />
+                  </Popover.Button>
 
-            <a href="#" className="text-base font-medium text-wgray hover:text-charcoal">
-              Pricing
-            </a>
-            <a href="#" className="text-base font-medium text-wgray hover:text-charcoal">
-              Docs
-            </a>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                          {saleReports.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                            >
+                              <item.icon className="flex-shrink-0 h-6 w-6 text-worange" aria-hidden="true" />
+                              <div className="ml-4">
+                                <p className="text-base font-medium text-charcoal">{item.name}</p>
+                                <p className="mt-1 text-sm text-wgray">{item.description}</p>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+
+                      </div>
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
+            </Popover>
+            {/* <a href="#" className="text-base font-medium text-wgray hover:text-charcoal">
+              Artist Services
+            </a> */}
 
             <Popover className="relative">
               {({ open }) => (
@@ -294,7 +363,14 @@ export default function Navbar() {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  {solutions.map((item) => (
+                  <a
+                    href="#"
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                  >
+                    <TableIcon className="flex-shrink-0 h-6 w-6 text-worange" aria-hidden="true" />
+                    <span className="ml-3 text-base font-medium text-charcoal">Overview</span>
+                  </a>
+                  {distribution.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -309,13 +385,9 @@ export default function Navbar() {
             </div>
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a href="#" className="text-base font-medium text-charcoal hover:text-gray-700">
-                  Pricing
-                </a>
-
-                <a href="#" className="text-base font-medium text-charcoal hover:text-gray-700">
+                {/* <a href="#" className="text-base font-medium text-charcoal hover:text-gray-700">
                   Docs
-                </a>
+                </a> */}
                 {resources.map((item) => (
                   <a
                     key={item.name}
