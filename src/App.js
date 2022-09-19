@@ -2,6 +2,22 @@ import { Prism } from '@mantine/prism';
 import { BoxContainer, FullContainer } from './components/containers';
 import Navbar from './components/navbar';
 
+const FullContainerCode = `
+import { FullContainer } from './components/containers';
+
+<FullContainer className="your-custom-classes">
+    /* ...code*/
+</FullContainer>
+`;
+
+const BoxContainerCode = `
+import { BoxContainer } from './components/containers';
+
+<BoxContainer className="your-custom-classes">
+    /* ...code*/
+</BoxContainer>
+`;
+
 export default function App() {
   return (
     <>
@@ -10,21 +26,15 @@ export default function App() {
         <div className="w-full h-80 bg-teal-600 p-10 m-auto ">
           <h3 className="w-full text-center text-2xl p-8">Full Width Container </h3>
           <Prism colorScheme="dark" language="jsx" className="max-w-lg mx-auto">
-            {
-              '<FullContainer className="your-custom-classes">\n\t/* ...code*/\n<FullContainer/>'
-            }
-
+            {FullContainerCode}
           </Prism>
         </div>
       </FullContainer>
-      <BoxContainer className="text-white border-solid border-2 border-sky-500">
+      <BoxContainer className="text-white border-solid border-2 border-sky-500 mt-8">
         <div className="w-full h-80 bg-violet-600 p-10 m-auto ">
           <h3 className="w-full text-center text-2xl p-8">Boxed Container </h3>
           <Prism colorScheme="dark" language="jsx" className="max-w-lg mx-auto">
-            {
-              '<BoxContainer className="your-custom-classes">\n\t/* ...code*/\n<BoxContainer/>'
-            }
-
+            {BoxContainerCode}
           </Prism>
         </div>
       </BoxContainer>
