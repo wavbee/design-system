@@ -5,8 +5,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Barlow Condensed', 'sans-serif'],
-      body: ['Roboto', 'sans-serif'],
+      sans: ['Roboto', 'sans-serif'],
     },
     extend: {
       colors: {
