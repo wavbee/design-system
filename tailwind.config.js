@@ -4,6 +4,10 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['Barlow Condensed', 'sans-serif'],
+      body: ['Roboto', 'sans-serif'],
+    },
     extend: {
       colors: {
         wgray: '#8c8c8c',
