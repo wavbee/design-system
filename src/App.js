@@ -24,7 +24,6 @@ const App = () => (
     <FullContainer className="text-white border-solid border-2 border-sky-500">
       <div className="w-full h-80 bg-teal-600 p-10 m-auto ">
         <h3 className="w-full text-center p-8">Full Width Container </h3>
-        <p>Hello Paweena</p>
         <Prism colorScheme="dark" language="jsx" className="max-w-lg mx-auto">
           {FullContainerCode}
         </Prism>
